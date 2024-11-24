@@ -1,0 +1,11 @@
+runtime: python39  # Anda bisa menggunakan runtime Python atau lainnya yang sesuai
+
+handlers:
+- url: /.*  # Menangani semua URL
+  static_files: index.html
+  upload: index.html
+- url: /styles.css  # Menangani file CSS
+  static_files: styles.css
+  upload: styles.css
+- url: /.*  # Menangani gambar dari Cloud Storage
+  static_dir: /  # Menyediakan file statis
