@@ -1,11 +1,14 @@
-runtime: python39  # Anda bisa menggunakan runtime Python atau lainnya yang sesuai
+runtime: python39  # Gunakan runtime sesuai kebutuhan
 
 handlers:
-- url: /.*  # Menangani semua URL
+- url: /  # Menangani root URL (halaman utama)
   static_files: index.html
   upload: index.html
+
 - url: /styles.css  # Menangani file CSS
   static_files: styles.css
   upload: styles.css
-- url: /.*  # Menangani gambar dari Cloud Storage
-  static_dir: /  # Menyediakan file statis
+
+- url: /(.*)  # Menangani file statis lainnya, seperti gambar
+  static_files: \1
+  upload: .*
